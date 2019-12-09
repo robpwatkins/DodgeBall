@@ -73,7 +73,16 @@ const redTeam = []
 
 class DodgeBallPlayer {
   constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
-
+    this.id = id;
+    this.name = name;
+    this.age = age;
+    this.skillSet = skillSet;
+    this.placeBorn = placeBorn;
+    this.canThrowBall = canThrowBall;
+    this.canDodgeBall = canDodgeBall;
+    this.hasPaid = hasPaid;
+    this.isHealthy = isHealthy;
+    this.yearsExperience = yearsExperience;
   }
 }
 class blueTeammate {
