@@ -85,6 +85,11 @@ class DodgeBallPlayer {
     this.yearsExperience = yearsExperience;
   }
 }
+
+// listOfPlayers.push(new DodgeBallPlayer(arrOfPeople.map(x => Object.values(x))));
+// listOfPlayers.push(new DodgeBallPlayer(9, 'BertP', 105, 'Chilling', 'The Moon', true, false, true, true, 200));
+// console.log(listOfPlayers);
+
 class blueTeammate {
   constructor(){}
 }
