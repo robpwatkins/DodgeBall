@@ -71,8 +71,10 @@ const redTeam = []
 // Create 3 tests for your application.
 
 
-class player {
-  constructor(){}
+class DodgeBallPlayer {
+  constructor(){
+
+  }
 }
 class blueTeammate {
   constructor(){}
