@@ -105,6 +105,8 @@ const listPeopleChoices = () => {
   })
 }
 
+listPeopleChoices();
+
 const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
 }
