@@ -72,7 +72,7 @@ const redTeam = []
 
 
 class DodgeBallPlayer {
-  constructor(id, name, age, skillSet, placeBorn){
+  constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
 
   }
 }
