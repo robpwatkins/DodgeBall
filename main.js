@@ -1,3 +1,5 @@
+// probably just hard code the second half of the stuff here
+
 const arrOfPeople = [
   {
     id: 2,
@@ -12,6 +14,8 @@ const arrOfPeople = [
     age: 35,
     skillSet: "fishing",
     placeBorn: "Louisville, Kentucky"
+    // after button clicked:
+    // team: 'blueTeam' or 'redTeam';
   },
   {
     id: 4,
@@ -61,10 +65,16 @@ const redTeam = []
 // then display them in the DOM as available players to pick.
 
 // Add a button to each new player that will allow each one to be selected 
-// for either Blue Team or Read Team and now has mascot and teamColor
+// for either Blue Team or Red Team and now has mascot and teamColor (add those properties to DodgeBallPlayer object)
 
 // Use the this keyword to assign each player to a team with an onclick. 
 // Either Blue Team or Red Team.
+// when new player is displayed buttons blue and red are also displayed next to it
+// when button clicked 'this'.team = blue or 'this'.team = red
+// click function will take in 'this' as argument (console.log(this) to make sure)
+// manipulate properties based on that
+
+// event.target? (look into that)
 
 // Display the two teams in a new list in the DOM with appropriate titles.
 
@@ -87,7 +97,7 @@ class DodgeBallPlayer {
 }
 
 // listOfPlayers.push(new DodgeBallPlayer(arrOfPeople.map(x => Object.values(x))));
-listOfPlayers.push(new DodgeBallPlayer(9, 'BertP', 105, 'Chilling', 'The Moon', true, false, true, true, 200));
+// listOfPlayers.push(new DodgeBallPlayer(9, 'BertP', 105, 'Chilling', 'The Moon', true, false, true, true, 200));
 console.log(listOfPlayers);
 
 class blueTeammate {
@@ -96,6 +106,33 @@ class blueTeammate {
 class redTeammate {
   constructor(){}
 }
+
+// create a new function
+// map over arrayOfPeople
+// create a new instance of the class for each object in array
+
+function createPlayers () {
+  const listElement = document.getElementById('players')
+  arrOfPeople.map(person => {
+    let newDodgeBallPlayer = new DodgeBallPlayer(person.id, person.name, person.age, person.skillSet, person.placeBorn, person.canDodgeBall, person.hasPaid, person.isHealthy, person.yearsExperience);
+    listOfPlayers.push(newDodgeBallPlayer)
+    console.log('list of players:', listOfPlayers);
+    const li = document.createElement('li')
+    const button = document.createElement('button')
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(person.name + ' - ' + person.skillSet))
+    listElement.append(li)
+    button.innerHTML = 'this for now'
+    button.addEventListener('click', function() {showPlayer(person.id)})
+  })
+}
+
+createPlayers();
+
+const showPlayer = (x) => {
+  console.log(x);
+}
+
 
 const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
@@ -110,7 +147,7 @@ const listPeopleChoices = () => {
   })
 }
 
-listPeopleChoices();
+// listPeopleChoices();
 
 const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
