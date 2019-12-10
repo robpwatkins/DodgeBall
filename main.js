@@ -7,11 +7,11 @@ const arrOfPeople = [
     age: 55,
     skillSet: "welding",
     placeBorn: "Omaha, Nebraska",
-    canThrowBall: false, 
-    canDodgeBall: true, 
-    hasPaid: false, 
-    isHealthy: true, 
-    yearsExperience: 3
+    // canThrowBall: false, 
+    // canDodgeBall: true, 
+    // hasPaid: false, 
+    // isHealthy: true, 
+    // yearsExperience: 3
     // after button clicked:
     // team: 'blueTeam' or 'redTeam';
   },
@@ -21,11 +21,11 @@ const arrOfPeople = [
     age: 35,
     skillSet: "fishing",
     placeBorn: "Louisville, Kentucky",
-    canThrowBall: true, 
-    canDodgeBall: true, 
-    hasPaid: true, 
-    isHealthy: true, 
-    yearsExperience: 32
+    // canThrowBall: true, 
+    // canDodgeBall: true, 
+    // hasPaid: true, 
+    // isHealthy: true, 
+    // yearsExperience: 32
   },
   {
     id: 4,
@@ -33,11 +33,11 @@ const arrOfPeople = [
     age: 20,
     skillSet: "tic tac toe",
     placeBorn: "Pawnee, Texas",
-    canThrowBall: false, 
-    canDodgeBall: true, 
-    hasPaid: true, 
-    isHealthy: true, 
-    yearsExperience: 16
+    // canThrowBall: false, 
+    // canDodgeBall: true, 
+    // hasPaid: true, 
+    // isHealthy: true, 
+    // yearsExperience: 16
   },
   {
     id: 5,
@@ -45,11 +45,11 @@ const arrOfPeople = [
     age: 28,
     skillSet: "pipe fitting",
     placeBorn: "New York, New York",
-    canThrowBall: false, 
-    canDodgeBall: false, 
-    hasPaid: true, 
-    isHealthy: true, 
-    yearsExperience: 27
+    // canThrowBall: false, 
+    // canDodgeBall: false, 
+    // hasPaid: true, 
+    // isHealthy: true, 
+    // yearsExperience: 27
   },
   {
     id: 6,
@@ -57,11 +57,11 @@ const arrOfPeople = [
     age: 20,
     skillSet: "boom-a-rang throwing",
     placeBorn: "Perth, Australia",
-    canThrowBall: true, 
-    canDodgeBall: true, 
-    hasPaid: false, 
-    isHealthy: true, 
-    yearsExperience: 19
+    // canThrowBall: true, 
+    // canDodgeBall: true, 
+    // hasPaid: false, 
+    // isHealthy: true, 
+    // yearsExperience: 19
   },
   {
     id: 7,
@@ -69,11 +69,11 @@ const arrOfPeople = [
     age: 17,
     skillSet: "acrobatics",
     placeBorn: "Los Angeles, California",
-    canThrowBall: true, 
-    canDodgeBall: true, 
-    hasPaid: false, 
-    isHealthy: true, 
-    yearsExperience: 1
+    // canThrowBall: true, 
+    // canDodgeBall: true, 
+    // hasPaid: false, 
+    // isHealthy: true, 
+    // yearsExperience: 1
   },
   {
     id: 8,
@@ -81,11 +81,11 @@ const arrOfPeople = [
     age: 32,
     skillSet: "jump rope",
     placeBorn: "New Orleans, Louisiana",
-    canThrowBall: false, 
-    canDodgeBall: true, 
-    hasPaid: true, 
-    isHealthy: true, 
-    yearsExperience: 5
+    // canThrowBall: false, 
+    // canDodgeBall: true, 
+    // hasPaid: true, 
+    // isHealthy: true, 
+    // yearsExperience: 5
   },
 ]
 
@@ -188,18 +188,20 @@ const listPeopleChoices = () => {
     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
     listElement.append(li)
   })
+  console.log(arrOfPeople);
 }
 
-const makePlayer = (x) => {
-  listOfPlayers.push(x);
-  console.log(listOfPlayers);
+const makePlayer = (person) => {
+  let tempArr = [];
+  tempArr.push(person);
+  // listOfPlayers.push(x);
+  // console.log(listOfPlayers);
+  // console.log(tempArr);
   // document.getElementById('players').innerHTML = listOfPlayers.map(person => person.name);
   const listElement = document.getElementById('players')
-  listOfPlayers.map(person => {
+  tempArr.map(person => {
     let newDodgeBallPlayer = new DodgeBallPlayer(person.id, person.name, person.age, person.skillSet, person.placeBorn, person.canDodgeBall, person.hasPaid, person.isHealthy, person.yearsExperience);
-    listOfPlayers = [];
     listOfPlayers.push(newDodgeBallPlayer)
-    // console.log('list of players:', listOfPlayers);
     const li = document.createElement('li')
     const blueButton = document.createElement('button')
     const redButton = document.createElement('button')
@@ -211,6 +213,8 @@ const makePlayer = (x) => {
     redButton.innerHTML = 'Red Team'
     blueButton.addEventListener('click', function() {blueButtonClicked(person.name)})
     redButton.addEventListener('click', function() {redButtonClicked(person.name)})
+    console.log(listOfPlayers);
+    console.log(tempArr.name);
   })
 }
 
