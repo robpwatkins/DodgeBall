@@ -6,55 +6,90 @@ const arrOfPeople = [
     name: "Charles Young",
     age: 55,
     skillSet: "welding",
-    placeBorn: "Omaha, Nebraska"
+    placeBorn: "Omaha, Nebraska",
+    canThrowBall: false, 
+    canDodgeBall: true, 
+    hasPaid: false, 
+    isHealthy: true, 
+    yearsExperience: 3
+    // after button clicked:
+    // team: 'blueTeam' or 'redTeam';
   },
   {
     id: 3,
     name: "Judy Twilight",
     age: 35,
     skillSet: "fishing",
-    placeBorn: "Louisville, Kentucky"
-    // after button clicked:
-    // team: 'blueTeam' or 'redTeam';
+    placeBorn: "Louisville, Kentucky",
+    canThrowBall: true, 
+    canDodgeBall: true, 
+    hasPaid: true, 
+    isHealthy: true, 
+    yearsExperience: 32
   },
   {
     id: 4,
     name: "Cynthia Doolittle",
     age: 20,
     skillSet: "tic tac toe",
-    placeBorn: "Pawnee, Texas"
+    placeBorn: "Pawnee, Texas",
+    canThrowBall: false, 
+    canDodgeBall: true, 
+    hasPaid: true, 
+    isHealthy: true, 
+    yearsExperience: 16
   },
   {
     id: 5,
     name: "John Willouby",
     age: 28,
     skillSet: "pipe fitting",
-    placeBorn: "New York, New York"
+    placeBorn: "New York, New York",
+    canThrowBall: false, 
+    canDodgeBall: false, 
+    hasPaid: true, 
+    isHealthy: true, 
+    yearsExperience: 27
   },
   {
     id: 6,
     name: "Stan Honest",
     age: 20,
     skillSet: "boom-a-rang throwing",
-    placeBorn: "Perth, Australia"
+    placeBorn: "Perth, Australia",
+    canThrowBall: true, 
+    canDodgeBall: true, 
+    hasPaid: false, 
+    isHealthy: true, 
+    yearsExperience: 19
   },
   {
     id: 7,
     name: "Mia Watu",
     age: 17,
     skillSet: "acrobatics",
-    placeBorn: "Los Angeles, California"
+    placeBorn: "Los Angeles, California",
+    canThrowBall: true, 
+    canDodgeBall: true, 
+    hasPaid: false, 
+    isHealthy: true, 
+    yearsExperience: 1
   },
   {
     id: 8,
     name: "Walter Cole",
     age: 32,
     skillSet: "jump rope",
-    placeBorn: "New Orleans, Louisiana"
+    placeBorn: "New Orleans, Louisiana",
+    canThrowBall: false, 
+    canDodgeBall: true, 
+    hasPaid: true, 
+    isHealthy: true, 
+    yearsExperience: 5
   },
 ]
 
-const listOfPlayers = []
+let listOfPlayers = [];
 const blueTeam = []
 const redTeam = []
 
@@ -98,7 +133,7 @@ class DodgeBallPlayer {
 
 // listOfPlayers.push(new DodgeBallPlayer(arrOfPeople.map(x => Object.values(x))));
 // listOfPlayers.push(new DodgeBallPlayer(9, 'BertP', 105, 'Chilling', 'The Moon', true, false, true, true, 200));
-console.log(listOfPlayers);
+// console.log(listOfPlayers);
 
 class blueTeammate {
   constructor(){}
@@ -111,26 +146,34 @@ class redTeammate {
 // map over arrayOfPeople
 // create a new instance of the class for each object in array
 
-function createPlayers () {
-  const listElement = document.getElementById('players')
-  arrOfPeople.map(person => {
-    let newDodgeBallPlayer = new DodgeBallPlayer(person.id, person.name, person.age, person.skillSet, person.placeBorn, person.canDodgeBall, person.hasPaid, person.isHealthy, person.yearsExperience);
-    listOfPlayers.push(newDodgeBallPlayer)
-    console.log('list of players:', listOfPlayers);
-    const li = document.createElement('li')
-    const button = document.createElement('button')
-    li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + ' - ' + person.skillSet))
-    listElement.append(li)
-    button.innerHTML = 'this for now'
-    button.addEventListener('click', function() {showPlayer(person.id)})
-  })
+// function createPlayers (arr) {
+//   const listElement = document.getElementById('players')
+//   arr.map(person => {
+//     let newDodgeBallPlayer = new DodgeBallPlayer(person.id, person.name, person.age, person.skillSet, person.placeBorn, person.canDodgeBall, person.hasPaid, person.isHealthy, person.yearsExperience);
+//     listOfPlayers.push(newDodgeBallPlayer)
+//     // console.log('list of players:', listOfPlayers);
+//     const li = document.createElement('li')
+//     const blueButton = document.createElement('button')
+//     const redButton = document.createElement('button')
+//     li.appendChild(blueButton)
+//     li.appendChild(redButton)
+//     li.appendChild(document.createTextNode(person.name + ' - ' + person.skillSet))
+//     listElement.append(li)
+//     blueButton.innerHTML = 'Blue Team'
+//     redButton.innerHTML = 'Red Team'
+//     blueButton.addEventListener('click', function() {blueButtonClicked(person.name)})
+//     redButton.addEventListener('click', function() {redButtonClicked(person.name)})
+//   })
+// }
+
+// createPlayers();
+
+const blueButtonClicked = (x) => {
+  console.log(`${x}: Blue Team`);
 }
 
-createPlayers();
-
-const showPlayer = (x) => {
-  console.log(x);
+const redButtonClicked = (x) => {
+  console.log(`${x}: Red Team`);
 }
 
 
@@ -140,15 +183,49 @@ const listPeopleChoices = () => {
     const li = document.createElement("li")
     const button = document.createElement("button")
     button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(person.id)} )
+    button.addEventListener('click', function() {makePlayer(person)} )
     li.appendChild(button)
     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
     listElement.append(li)
   })
 }
 
+const makePlayer = (x) => {
+  listOfPlayers.push(x);
+  console.log(listOfPlayers);
+  // document.getElementById('players').innerHTML = listOfPlayers.map(person => person.name);
+  const listElement = document.getElementById('players')
+  listOfPlayers.map(person => {
+    let newDodgeBallPlayer = new DodgeBallPlayer(person.id, person.name, person.age, person.skillSet, person.placeBorn, person.canDodgeBall, person.hasPaid, person.isHealthy, person.yearsExperience);
+    listOfPlayers = [];
+    listOfPlayers.push(newDodgeBallPlayer)
+    // console.log('list of players:', listOfPlayers);
+    const li = document.createElement('li')
+    const blueButton = document.createElement('button')
+    const redButton = document.createElement('button')
+    li.appendChild(blueButton)
+    li.appendChild(redButton)
+    li.appendChild(document.createTextNode(person.name + ' - ' + person.skillSet))
+    listElement.append(li)
+    blueButton.innerHTML = 'Blue Team'
+    redButton.innerHTML = 'Red Team'
+    blueButton.addEventListener('click', function() {blueButtonClicked(person.name)})
+    redButton.addEventListener('click', function() {redButtonClicked(person.name)})
+  })
+}
+
 // listPeopleChoices();
 
-const makePlayer = (id) => {
-  console.log(`li ${id} was clicked!`)
-}
+// const makePlayer = (x) => {
+//   let tempPlayerArray = [];
+//   tempPlayerArray.push(x);
+//   createPlayers(tempPlayerArray);
+//   for (let i = 0; i < arrOfPeople.length; i++) {
+//     if(tempPlayerArray[i] === tempPlayerArray[0]) {
+//       arrOfPeople.splice(arrOfPeople[i], 1);
+//       // document.getElementById('people').innerHTML = listPeopleChoices();
+//     }
+//   }
+//   console.log(tempPlayerArray);
+//   console.log(arrOfPeople);
+// }
