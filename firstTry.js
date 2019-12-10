@@ -50,9 +50,9 @@ const arrOfPeople = [
   },
 ]
 
-let listOfPlayers = []
-const blueTeam = []
-const redTeam = []
+let listOfPlayers = [];
+let blueTeam = [];
+let redTeam = [];
 
 // class player {
 //   constructor(){}
@@ -73,11 +73,20 @@ class DodgeBallPlayer {
   }
 }
 
-class blueTeammate {
-  constructor(){}
+class blueTeammate extends DodgeBallPlayer {
+  constructor(color = 'blue', mascot = 'The Blue Dude', id, name, age, skillSet, placeBorn, canThrowBall = true, canDodgeBall = true, hasPaid = true, isHealthy = true, yearsExperience = 7){
+    super(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience)
+    this.color = color;
+    this.mascot = mascot;
+  }
 }
-class redTeammate {
-  constructor(){}
+
+class redTeammate extends DodgeBallPlayer {
+  constructor(color = 'red', mascot = 'The Red Lady', id, name, age, skillSet, placeBorn, canThrowBall = true, canDodgeBall = true, hasPaid = true, isHealthy = true, yearsExperience = 12){
+    super(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience)
+    this.color = color;
+    this.mascot = mascot;
+  }
 }
 
 const listPeopleChoices = () => {
@@ -114,9 +123,33 @@ const makePlayer = (person) => {
 }
 
 const blueButtonClick = (player) => {
-  document.getElementById('blue').innerHTML = player.name;
+  // blueTeam = [];
+  let blueTeamMember = [];
+  const listElement = document.getElementById('blue');
+  let newBlueTeammate = new blueTeammate(player.color, player.mascot, player.id, player.name, player.age, player.skillSet, player.placeBorn, player.canThrowBall, player.canDodgeBall, player.hasPaid, player.isHealthy, player.yearsExperience);
+  blueTeamMember.push(newBlueTeammate);
+  blueTeamMember.map(player => {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(player.name));
+    listElement.append(li);
+    // console.log(blueTeam);
+  })
+  blueTeam.push(blueTeamMember[0]);
+  console.log(blueTeam);
 }
 
 const redButtonClick = (player) => {
-  document.getElementById('red').innerHTML = player.name;
+  // redTeam = [];
+  let redTeamMember = [];
+  const listElement = document.getElementById('red');
+  let newRedTeammate = new redTeammate(player.color, player.mascot, player.id, player.name, player.age, player.skillSet, player.placeBorn, player.canThrowBall, player.canDodgeBall, player.hasPaid, player.isHealthy, player.yearsExperience);
+  redTeamMember.push(newRedTeammate);
+  redTeamMember.map(player => {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(player.name));
+    listElement.append(li);
+    // console.log(redTeam);
+  })
+  redTeam.push(redTeamMember[0]);
+  console.log(redTeam);
 }
