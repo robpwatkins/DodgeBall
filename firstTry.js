@@ -138,7 +138,7 @@ const blueButtonClick = (player) => {
     // console.log(blueTeam);
   })
   blueTeam.push(blueTeamMember[0]);
-  console.log(blueTeam);
+  // console.log(blueTeam);
 }
 
 const redButtonClick = (player) => {
@@ -154,5 +154,5 @@ const redButtonClick = (player) => {
     // console.log(redTeam);
   })
   redTeam.push(redTeamMember[0]);
-  console.log(redTeam);
+  // console.log(redTeam);
 }
