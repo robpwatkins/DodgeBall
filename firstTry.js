@@ -50,6 +50,9 @@ const arrOfPeople = [
   },
 ]
 
+
+// window.addEventListener('click', listPeopleChoices);
+
 let listOfPlayers = [];
 let blueTeam = [];
 let redTeam = [];
