@@ -114,10 +114,10 @@ const makePlayer = (person) => {
     const li = document.createElement('li');
     const blueButton = document.createElement('button');
     blueButton.innerHTML = 'Blue Team'
-    blueButton.addEventListener('click', function() {listElement.removeChild(li), blueButtonClick(player)});
+    blueButton.addEventListener('click', function() {listElement.removeChild(li), makeBlueTeammate(player)});
     const redButton = document.createElement('button');
     redButton.innerHTML = 'Red Team'
-    redButton.addEventListener('click', function() {listElement.removeChild(li), redButtonClick(player)});
+    redButton.addEventListener('click', function() {listElement.removeChild(li), makeRedTeammate(player)});
     li.appendChild(blueButton);
     li.appendChild(redButton);
     li.appendChild(document.createTextNode(person.name));
@@ -125,7 +125,7 @@ const makePlayer = (person) => {
   })
 }
 
-const blueButtonClick = (player) => {
+const makeBlueTeammate = (player) => {
   // blueTeam = [];
   let blueTeamMember = [];
   const listElement = document.getElementById('blue');
@@ -141,7 +141,7 @@ const blueButtonClick = (player) => {
   // console.log(blueTeam);
 }
 
-const redButtonClick = (player) => {
+const makeRedTeammate = (player) => {
   // redTeam = [];
   let redTeamMember = [];
   const listElement = document.getElementById('red');
