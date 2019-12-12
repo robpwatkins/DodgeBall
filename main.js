@@ -1,3 +1,12 @@
+// 'use strict';
+
+// const assert = require('assert');
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+
 // probably just hard code the second half of the stuff here
 
 const arrOfPeople = [
