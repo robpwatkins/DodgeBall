@@ -1,3 +1,9 @@
+module.exports = {
+  testThat: function(){
+    return 'heyoo';
+  }
+}
+
 const arrOfPeople = [
   {
     id: 2,
