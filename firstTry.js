@@ -5,9 +5,9 @@
 //   }
 // }
 
-function testWorking () {
-  return 'cmon now';
-}
+// function testWorking () {
+//   return 'cmon now';
+// }
 
 
 
@@ -140,9 +140,9 @@ const makePlayer = (person) => {
   })
 }
 
-const omgThisWorks = () => {
-  return 'omg this works!'
-}
+// const omgThisWorks = () => {
+//   return 'omg this works!'
+// }
 
 const makeBlueTeammate = (player) => {
   // blueTeam = [];
@@ -178,4 +178,27 @@ const makeRedTeammate = (player) => {
 
 // export default testWorking();
 
-module.exports = {testWorking, omgThisWorks}
+// module.exports = {testWorking, omgThisWorks}
+
+const assert = require('assert');
+
+describe('DodgeBallPlayer', function(){
+  it('should add player properties to person', function(){
+    const person = {
+      id: 2,
+      name: "Charles Young",
+      age: 55,
+      skillSet: "welding",
+      placeBorn: "Omaha, Nebraska"
+    };
+    const player = new DodgeBallPlayer(2, "Charles Young", 55, "welding", "Omaha, Nebraska", true, true, true, true, 100)
+    assert.equal(player.yearsExperience, '100');
+  })
+})
+
+describe('makeRedTeammate', function(){
+  it('should add "color: red"', function(){
+    const player = new redTeammate
+    assert.equal(player.color, 'red');
+  })
+})

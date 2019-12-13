@@ -10,15 +10,15 @@ const app = require('../firstTry');
 //   })
 // })
 
-describe('testWorking', function(){
-  it('should return cmon now', function(){
-    assert.equal(app.testWorking(), 'cmon now');
-  })
-})
+// describe('testWorking', function(){
+//   it('should return cmon now', function(){
+//     assert.equal(app.testWorking(), 'cmon now');
+//   })
+// })
 
-describe('omgThisWorks', function(){
-  it('should return omg this works!', function(){
-    assert.equal(app.omgThisWorks(), 'omg this works!');
-  })
-})
+// describe('omgThisWorks', function(){
+//   it('should return omg this works!', function(){
+//     assert.equal(app.omgThisWorks(), 'omg this works!');
+//   })
+// })
 
