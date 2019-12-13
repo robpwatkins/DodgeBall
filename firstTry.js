@@ -1,8 +1,17 @@
-module.exports = {
-  testThat: function(){
-    return 'heyoo';
-  }
+
+// module.exports = {
+//   testThat: function(){
+//     return 'heyoo';
+//   }
+// }
+
+function testWorking () {
+  return 'cmon now';
 }
+
+
+
+// export default testWorking;
 
 const arrOfPeople = [
   {
@@ -131,6 +140,10 @@ const makePlayer = (person) => {
   })
 }
 
+const omgThisWorks = () => {
+  return 'omg this works!'
+}
+
 const makeBlueTeammate = (player) => {
   // blueTeam = [];
   let blueTeamMember = [];
@@ -162,3 +175,7 @@ const makeRedTeammate = (player) => {
   redTeam.push(redTeamMember[0]);
   // console.log(redTeam);
 }
+
+// export default testWorking();
+
+module.exports = {testWorking, omgThisWorks}
