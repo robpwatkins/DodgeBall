@@ -202,3 +202,10 @@ describe('makeRedTeammate', function(){
     assert.equal(player.color, 'red');
   })
 })
+
+describe('makeBlueTeammate', function(){
+  it('should push "player" object to blueTeamMember array', function(){
+    // const player = new redTeammate
+    assert.equal(makeBlueTeammate(), 'blueTeam.length > 0');
+  })
+})
